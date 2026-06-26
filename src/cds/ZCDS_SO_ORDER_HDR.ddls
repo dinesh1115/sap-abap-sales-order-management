@@ -1,0 +1,22 @@
+@AbapCatalog.sqlViewName: 'ZCDSSOHDR'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'Sales Order Header'
+define view ZCDS_SO_ORDER_HDR
+  as select from zso_hdr
+  association [0..1] to ZCDS_SO_CUSTOMER as _Customer
+    on $projection.customer_id = _Customer.customer_id
+{
+  key order_id,
+      customer_id,
+      order_date,
+      status,
+      @Semantics.amount.currencyCode: 'currency'
+      total_amount,
+      currency,
+      created_by,
+      created_at,
+      changed_by,
+      changed_at,
+      _Customer
+}

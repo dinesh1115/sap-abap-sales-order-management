@@ -1,0 +1,16 @@
+@AbapCatalog.sqlViewName: 'ZCDSINV'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'Inventory Stock'
+define view ZCDS_SO_INVENTORY
+  as select from zinv_stock as stock
+  inner join zmat_master as mat
+    on stock.material_id = mat.material_id
+{
+  key stock.material_id,
+  key stock.plant,
+  key stock.storage_loc,
+      mat.description,
+      stock.stock_qty,
+      stock.uom
+}

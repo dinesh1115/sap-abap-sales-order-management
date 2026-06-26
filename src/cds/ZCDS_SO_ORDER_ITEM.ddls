@@ -1,0 +1,21 @@
+@AbapCatalog.sqlViewName: 'ZCDSSOITEM'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'Sales Order Item'
+define view ZCDS_SO_ORDER_ITEM
+  as select from zso_item
+  association [0..1] to ZCDS_SO_MATERIAL as _Material
+    on $projection.material_id = _Material.material_id
+{
+  key order_id,
+  key item_no,
+      material_id,
+      quantity,
+      @Semantics.amount.currencyCode: 'USD'
+      unit_price,
+      @Semantics.amount.currencyCode: 'USD'
+      net_amount,
+      uom,
+      plant,
+      _Material
+}

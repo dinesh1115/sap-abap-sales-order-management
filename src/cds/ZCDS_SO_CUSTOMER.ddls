@@ -1,0 +1,12 @@
+@AbapCatalog.sqlViewName: 'ZCDSCUST'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'Customer Master'
+define view ZCDS_SO_CUSTOMER
+  as select from zcust_master
+{
+  key customer_id,
+      name,
+      city,
+      country
+}

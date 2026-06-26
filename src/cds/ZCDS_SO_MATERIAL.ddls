@@ -1,0 +1,14 @@
+@AbapCatalog.sqlViewName: 'ZCDSMAT'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'Material Master'
+define view ZCDS_SO_MATERIAL
+  as select from zmat_master
+{
+  key material_id,
+      description,
+      @Semantics.amount.currencyCode: 'currency'
+      price,
+      uom,
+      currency
+}

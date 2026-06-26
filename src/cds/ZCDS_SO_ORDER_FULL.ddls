@@ -1,0 +1,19 @@
+@AbapCatalog.sqlViewName: 'ZCDSSOFULL'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'Sales Order with Items'
+define view ZCDS_SO_ORDER_FULL
+  as select from ZCDS_SO_ORDER_HDR as hdr
+  association [1..*] to ZCDS_SO_ORDER_ITEM as _Items
+    on $projection.order_id = _Items.order_id
+{
+  key hdr.order_id,
+      hdr.customer_id,
+      hdr.order_date,
+      hdr.status,
+      hdr.total_amount,
+      hdr.currency,
+      hdr.created_by,
+      hdr.created_at,
+      _Items
+}
