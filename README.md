@@ -212,7 +212,7 @@ sap-abap-sales-order-management/
 
 **Dinesh** — SAP ABAP Developer
 
-Portfolio project demonstrating enterprise ABAP practices for sales order and inventory management scenarios.
+
 
 ---
 
