@@ -1,6 +1,6 @@
 *&---------------------------------------------------------------------*
 *& Class: ZCL_SO_AUTH_CHECK
-*& Description: Authorization checks for Sales Order module
+*& Description: Authorization checks for Sales Order module.  ..
 *&---------------------------------------------------------------------*
 CLASS zcl_so_auth_check DEFINITION
   PUBLIC
